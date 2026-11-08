@@ -1,35 +1,48 @@
 import { IconSearch } from "@tabler/icons-react";
 import { IconChevronDown } from "@tabler/icons-react"; 
 import { useState } from "react";
-import type { Region, RegionProps } from "./types";
+import type { Region, RegionProps, Card } from "./types";
 
 const regions: Region[] = [
-  { key: 1, region: "Africa" },
-  { key: 2, region: "America" },
-  { key: 3, region: "Antartica" },
-  { key: 4, region: "Asia" },
-  { key: 5, region: "Europe" },
-  { key: 6, region: "Oceania" },
-  { key: 7, region: "Continent"}
+  { key: 1, region: "Africa", value: "africa" },
+  { key: 2, region: "America", value: "americas" },
+  { key: 3, region: "Asia", value: "asia" },
+  { key: 4, region: "Europe", value: "europe" },
+  { key: 5, region: "Oceania", value: "oceania" },
+  { key: 6, region: "Continent", value: ""}
 ];
 
-function Searchbar() {
+interface SearchProps {
+  getCardDetails: (region: string, country: string) => void;
+}
+
+function Searchbar({ getCardDetails }: SearchProps) {
   
   const [dropdown, setDropdown] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const [regionSearch, setRegionSearch] = useState("");
 
   const [continent, setContinent] = useState("Continent");
   
   const RegionDropdown = ({ region }: RegionProps) => {
-    const optionClick = (region: string) => {
-      setContinent(region);
+    const optionClick = (region: Region) => {
+      setContinent(region.region);
+      setRegionSearch(region.value)
+      const regionValue = region.value
+      getCardDetails(regionValue, searchValue);
       setDropdown(!dropdown);
     }
     return (
-      <div key={region.key} onClick={() => {optionClick(region.region)}} className={!dropdown ? 'hidden' : 'h-8 hover:bg-gray-600 text-gray-400 flex items-center px-4 bg-[#2b3743]'}>
+      <div key={region.key} onClick={() => {optionClick(region)}} className={!dropdown ? 'hidden' : 'h-8 hover:bg-gray-600 text-gray-400 flex items-center px-4 bg-[#2b3743]'}>
         <p>{region.region}</p>
       </div>
     )
+  }
+
+  const fuzzySearch = (search: string) => {
+    setSearchValue(search);
+    const currentSearch = search;
+    getCardDetails(regionSearch, currentSearch)
   }
   
   return (
@@ -40,7 +53,7 @@ function Searchbar() {
           value={searchValue}
           placeholder="Search for a country..."
           className="w-full focus:outline-none"
-          onChange={(e) => {setSearchValue(e.target.value)}}
+          onChange={(e) => {fuzzySearch(e.target.value)}}
         />
       </div>
       <div className="font-[Inter] flex flex-col gap-2 text-sm mt-4 md:mt-0 w-fit ">

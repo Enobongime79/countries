@@ -14,8 +14,18 @@ export interface CardProps {
 export interface Region {
   key: number;
   region: string;
+  value: string;
 }
 
 export interface RegionProps {
   region: Region;
+}
+
+export interface Search {
+  reg: string;
+  country: string;
+}
+
+export interface SearchProps {
+  search: Search
 }
