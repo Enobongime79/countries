@@ -2,7 +2,7 @@ import { IconMoonFilled } from "@tabler/icons-react";
 
 function Navbar() {
   return (
-    <div className="h-16 md:px-16 flex flex-row text-white sticky top-0 items-center px-4 text-sm justify-between bg-[#2b3743]">
+    <div className="h-16 md:px-16 z-50 flex flex-row text-white sticky top-0 items-center px-4 text-sm justify-between bg-[#2b3743]">
       <div className="text-lg font-medium font-[Inter]">
         Where in the world? 
       </div>

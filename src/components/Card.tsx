@@ -3,9 +3,7 @@ import type { Card, CardProps } from "./types"
 function Cardbox({ card }: CardProps) {
   return (
     <div className="flex flex-col md:mt-8 rounded-lg text-white font-[Inter] hover:cursor-pointer bg-[#2b3743] w-80">
-      <div className="md:h-50 md:w-80">
-        <img src={card.image} className="md:h-50 md:w-80 " />
-      </div>
+      <img src={card.image} className="md:h-50" />
       <div className="py-8 px-8">
         <p className="text-lg font-bold">{card.name}</p>
         <div className="flex flex-col gap-2 text-sm mt-4">

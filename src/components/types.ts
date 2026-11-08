@@ -1,7 +1,7 @@
 export interface Card {
   name: string;
   image: string;
-  population: number;
+  population: string;
   region: string;
   capital: string;
 }
