@@ -8,8 +8,7 @@ export interface Card {
 
 export interface CardProps {
   card: Card;
-  showCardDetail: boolean;
-  setShowCardDetail: React.Dispatch<React.SetStateAction<boolean>>;
+  getDetails: (country: string) => void;
 }
 
 
@@ -30,4 +29,31 @@ export interface Search {
 
 export interface SearchProps {
   search: Search
+}
+
+export interface Currency {
+  code: string;
+  name: string;
+  symbol: string;
+}
+
+export interface Language {
+  iso639_1: string;
+  iso639_2: string;
+  string: string;
+  nativeName: string;
+}
+
+export interface Preview {
+  name: string;
+  nativeName: string;
+  population: string;
+  region: string;
+  subRegion: string;
+  capital: string;
+  flag: string;
+  domain: string[];
+  currencies: Currency[];
+  languages: string;
+  borderCountries: string[];
 }

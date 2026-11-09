@@ -1,9 +1,13 @@
 import type { CardProps } from "./types"
+import axios from "axios"
 
-function Cardbox({ card, setShowCardDetail, showCardDetail }: CardProps) {
+function Cardbox({ card, getDetails }: CardProps) {
+  
   return (
-    <div onClick={() => {setShowCardDetail(!showCardDetail)}} className="flex flex-col md:mt-8 rounded-lg dark:text-white shadow-lg font-[Inter] bg-white text-black hover:cursor-pointer dark:bg-[#2b3743] w-80">
-      <img src={card.image} className="md:object-contain w-80 h-50" />
+    <div onClick={() => { getDetails(card.name) }} className="flex flex-col md:mt-8 rounded-lg dark:text-white shadow-lg font-[Inter] bg-white text-black hover:cursor-pointer dark:bg-[#2b3743] w-80">
+      <div className="h-50 overflow-hidden"> 
+        <img src={card.image} className="md:object-contain w-full" />
+      </div>
       <div className="py-8 px-8">
         <p className="text-lg font-bold">{card.name}</p>
         <div className="flex flex-col gap-2 text-sm mt-4">
