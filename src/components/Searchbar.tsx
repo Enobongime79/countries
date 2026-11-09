@@ -1,7 +1,7 @@
 import { IconSearch } from "@tabler/icons-react";
 import { IconChevronDown } from "@tabler/icons-react"; 
 import { useState } from "react";
-import type { Region, RegionProps, Card } from "./types";
+import type { Region, RegionProps } from "./types";
 
 const regions: Region[] = [
   { key: 1, region: "Africa", value: "africa" },
@@ -33,7 +33,7 @@ function Searchbar({ getCardDetails }: SearchProps) {
       setDropdown(!dropdown);
     }
     return (
-      <div key={region.key} onClick={() => {optionClick(region)}} className={!dropdown ? 'hidden' : 'h-8 hover:bg-gray-600 text-gray-400 flex items-center px-4 bg-[#2b3743]'}>
+      <div key={region.key} onClick={() => {optionClick(region)}} className={!dropdown ? 'hidden' : 'h-8 dark:hover:bg-gray-600 hover:bg-gray-300 dark:text-gray-400 text-dark flex items-center bg-white px-4 dark:bg-[#2b3743]'}>
         <p>{region.region}</p>
       </div>
     )
@@ -47,7 +47,7 @@ function Searchbar({ getCardDetails }: SearchProps) {
   
   return (
     <div className="mx-4 md:mx-16 flex md:flex-row md:gap-4 md:justify-between mt-8 flex-col">
-      <div className="h-10 gap-4 text-sm px-4 md:w-100  bg-[#2b3743] flex rounded-lg flex-row items-center text-white font-[Inter] ">
+      <div className="h-10 gap-4 text-sm px-4 shadow md:w-100  dark:bg-[#2b3743] bg-white text-black flex rounded-lg flex-row items-center dark:text-white font-[Inter] ">
         <IconSearch stroke={2} />
         <input
           value={searchValue}
@@ -57,7 +57,7 @@ function Searchbar({ getCardDetails }: SearchProps) {
         />
       </div>
       <div className="font-[Inter] flex flex-col gap-2 text-sm mt-4 md:mt-0 w-fit ">
-        <div onClick={() => {setDropdown(!dropdown)}} className="flex rounded-lg relative flex-row h-10 gap-2 px-4 items-center text-white bg-[#2b3743]">
+        <div onClick={() => {setDropdown(!dropdown)}} className="flex rounded-lg relative flex-row h-10 gap-2 px-4 items-center text-black bg-white shadow-lg dark:text-white dark:bg-[#2b3743]">
           <p>Filter by {continent} </p>
           <IconChevronDown stroke={1.5} />
         </div>

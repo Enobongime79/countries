@@ -7,7 +7,9 @@ export interface Card {
 }
 
 export interface CardProps {
-  card: Card
+  card: Card;
+  showCardDetail: boolean;
+  setShowCardDetail: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 

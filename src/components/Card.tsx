@@ -1,9 +1,9 @@
-import type { Card, CardProps } from "./types"
+import type { CardProps } from "./types"
 
-function Cardbox({ card }: CardProps) {
+function Cardbox({ card, setShowCardDetail, showCardDetail }: CardProps) {
   return (
-    <div className="flex flex-col md:mt-8 rounded-lg text-white font-[Inter] hover:cursor-pointer bg-[#2b3743] w-80">
-      <img src={card.image} className="md:h-50" />
+    <div onClick={() => {setShowCardDetail(!showCardDetail)}} className="flex flex-col md:mt-8 rounded-lg dark:text-white shadow-lg font-[Inter] bg-white text-black hover:cursor-pointer dark:bg-[#2b3743] w-80">
+      <img src={card.image} className="md:object-contain w-80 h-50" />
       <div className="py-8 px-8">
         <p className="text-lg font-bold">{card.name}</p>
         <div className="flex flex-col gap-2 text-sm mt-4">
