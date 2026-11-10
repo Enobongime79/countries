@@ -18,7 +18,7 @@ function CardDetails({
         onClick={() => {
           setShowCardDetail(!showCardDetail);
         }}
-        className="flex items-center bg-white dark:bg-[#2b3743] dark:text-white shadow-lg hover:cursor-pointer dark:hover:bg-gray-700 hover:bg-gray-400 text-black gap-1 py-1 w-fit rounded px-6"
+        className="flex border dark:border-none items-center bg-white dark:bg-[#2b3743] dark:text-white shadow-lg hover:cursor-pointer dark:hover:bg-gray-700 hover:bg-black hover:text-white text-black gap-1 py-1 w-fit rounded px-6"
       >
         <IconArrowNarrowLeft /> <p className="text-sm">Back</p>
       </button>
