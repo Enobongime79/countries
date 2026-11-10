@@ -24,7 +24,7 @@ function Navbar() {
       <div className="text-lg font-medium font-[Inter]">
         Where in the world? 
       </div>
-      <button onClick={ () => {setDarkMode()} } title="change to light mode" className="font-[Inter] flex flex-row items-center gap-1 border px-2 rounded-lg dark:text-black dark:bg-white text-white bg-black hover:cursor-pointer py-1">
+      <button onClick={ () => {setDarkMode()} } title="change to light mode" className="font-[Inter] text-xs font-medium flex flex-row items-center gap-1 border px-2 rounded-lg dark:text-black dark:bg-white text-white bg-black hover:cursor-pointer py-1">
         {dark ? <IconSun /> : <IconMoon />}
         
         {darkText} Mode

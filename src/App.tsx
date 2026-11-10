@@ -163,7 +163,25 @@ function App() {
         console.log(langNameArray);
         const formattedLanguage = langNameArray.join(", ");
         console.log("This is the formatted language", formattedLanguage);
-        
+
+        let borders = data[i].borders;
+
+        if (!data[i].borders) {
+          borders = [];
+        }
+
+        console.log("borders", borders)
+        const borderNames = []
+        for (let i = 0; i < borders.length; i++){
+          for (let j = 0; j < data.length; j++){
+            if (borders[i] == data[j].alpha3Code) {
+              borderNames.push(data[j].name)
+            }
+          }
+        }
+
+        console.log("borderNames: ", borderNames);
+
         mainData = {
           name: data[i].name,
           nativeName: data[i].nativeName,
@@ -175,7 +193,7 @@ function App() {
           domain: data[i].topLevelDomain,
           currencies: data[i].currencies,
           languages: formattedLanguage,
-          borderCountries: data[i].borders,
+          borderCountries: borderNames,
         };
         break;
       }
